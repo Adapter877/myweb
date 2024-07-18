@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  php:
+    build: .  # Replace with path to your Dockerfile if you have one
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+      - ./configphp/php.ini:/usr/local/etc/php/conf.d/php.ini # Mount custom php.ini
