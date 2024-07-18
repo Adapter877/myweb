@@ -8,3 +8,17 @@ services:
     volumes:
       - ./:/var/www/html
       - ./configphp/php.ini:/usr/local/etc/php/conf.d/php.ini # Mount custom php.ini
+      
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: my_database  # Replace with your desired database name
+      MYSQL_ROOT_PASSWORD: secret_password  # Replace with a strong password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persistent storage for data
+
+volumes:
+  mysql_data: {}
