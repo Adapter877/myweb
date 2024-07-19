@@ -15,7 +15,13 @@ RUN apt-get update && apt-get install -y \
     unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
-    && docker-php-ext-install pdo pdo_mysql mysqli zip 
+    && docker-php-ext-install pdo pdo_mysql mysqli zip
+
+RUN apt-get -y update \
+    && apt-get install -y libicu-dev\
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install intl && apt install php-opcache && apt install vim
+
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
