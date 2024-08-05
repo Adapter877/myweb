@@ -1,18 +1,7 @@
 <?php
 /**
  * load.php
- *
- * @author Goragod Wiriya <admin@goragod.com>
- * @copyright 2016 Goragod.com
- * @license https://www.kotchasan.com/license/
- *
- * @see https://www.kotchasan.com/
- */
-/**
- * document root (full path)
- * eg /home/user/public_html/
- *
- * @var string
+
  */
 define('ROOT_PATH', str_replace('\\', '/', dirname(__FILE__)).'/');
 /**
