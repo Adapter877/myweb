@@ -20,9 +20,6 @@ define('DATA_FOLDER', 'datas/');
 define('DEBUG', 0);
 /**
  * false (default)
- * true บันทึกการ query ฐานข้อมูลลง log (ใช้เฉพาะตอนออกแบบเท่านั้น)
- *
- * @var bool
  */
 define('DB_LOG', false);
 /**
