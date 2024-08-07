@@ -19,6 +19,13 @@ jobs:
       id-token: write
 
     steps:
+      # Send LINE notification at the beginning
+      - name: Send LINE notification
+        run: |
+          curl -X POST https://notify-api.line.me/api/notify \
+          -H 'Authorization: Bearer ${{ secrets.LINE_NOTIFY_TOKEN }}' \
+          -d 'message=🚀 *เริ่มการทำงานของแอคชั่น!* 🎉\n\n🔹 *รีโพ:* ${{ env.REPO_NAME }}\n🔹 *ผู้ใช้:* ${{ env.USER_NAME }}\n\n👍 *ติดตามผลการทำงานต่อไป...*'
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -52,7 +59,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      # Send LINE notification
+      # Send LINE notification at the end
       - name: Send LINE notification
         run: |
           curl -X POST https://notify-api.line.me/api/notify \
