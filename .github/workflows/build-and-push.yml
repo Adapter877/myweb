@@ -51,3 +51,21 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      # Send LINE notification
+      - name: Send LINE notification
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const fetch = require('node-fetch');
+            const token = process.env.LINE_NOTIFY_TOKEN;
+            const message = `Deployment Successful:\nImage: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\nTags: ${{ steps.meta.outputs.tags }}`;
+
+            await fetch('https://notify-api.line.me/api/notify', {
+              method: 'POST',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body: new URLSearchParams({ message }),
+            });
