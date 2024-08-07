@@ -24,7 +24,7 @@ jobs:
         run: |
           curl -X POST https://notify-api.line.me/api/notify \
           -H 'Authorization: Bearer ${{ secrets.LINE_NOTIFY_TOKEN }}' \
-          -d 'message=🚀 *เริ่มการทำงานของแอคชั่น!* 🎉\n🔹 *ที่เก็บข้อมูล:* ${{ env.REPO_NAME }}\n🔹 *ผู้ใช้:* ${{ env.USER_NAME }}\n👍 *ติดตามผลการทำงานต่อไป...*'
+          -d 'message=🚀 *เริ่มการทำงานของแอคชั่น!* 🎉 \n🔹 *ที่เก็บข้อมูล:* ${{ env.REPO_NAME }} \n 🔹 *ผู้ใช้:* ${{ env.USER_NAME }} \n 👍 *ติดตามผลการทำงานต่อไป...*'
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -64,4 +64,4 @@ jobs:
         run: |
           curl -X POST https://notify-api.line.me/api/notify \
           -H 'Authorization: Bearer ${{ secrets.LINE_NOTIFY_TOKEN }}' \
-          -d 'message=🚀 *แอคชั่นเสร็จสมบูรณ์!* 🎉\n🔹 *รีโพ:* ${{ env.REPO_NAME }}\n🔹 *ผู้ใช้:* ${{ env.USER_NAME }}\n🔹 *อิมเมจ:* ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\n🔹 *แท็ก:* ${{ steps.meta.outputs.tags }}\n👍 *ขอบคุณที่ให้ความสนใจ!*'
+          -d 'message=🚀 *แอคชั่นเสร็จสมบูรณ์!* 🎉 \n 🔹 *รีโพ:* ${{ env.REPO_NAME }} \n 🔹 *ผู้ใช้:* ${{ env.USER_NAME }} \n 🔹 *อิมเมจ:* ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \n 🔹 *แท็ก:* ${{ steps.meta.outputs.tags }} \n 👍 *ขอบคุณที่ให้ความสนใจ!*'
