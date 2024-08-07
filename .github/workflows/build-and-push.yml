@@ -24,7 +24,7 @@ jobs:
         run: |
           curl -X POST https://notify-api.line.me/api/notify \
           -H 'Authorization: Bearer ${{ secrets.LINE_NOTIFY_TOKEN }}' \
-          -d 'message=🚀 *เริ่มการทำงานของแอคชั่น!* 🎉\n\n🔹 *ที่เก็บข้อมูล:* ${{ env.REPO_NAME }}\n🔹 *ผู้ใช้:* ${{ env.USER_NAME }}\n\n👍 *ติดตามผลการทำงานต่อไป...*'
+          -d 'message=🚀 *เริ่มการทำงานของแอคชั่น!* 🎉🔹 *ที่เก็บข้อมูล:* ${{ env.REPO_NAME }} 🔹 *ผู้ใช้:* ${{ env.USER_NAME }} 👍 *ติดตามผลการทำงานต่อไป...*'
 
       - name: Checkout repository
         uses: actions/checkout@v3
