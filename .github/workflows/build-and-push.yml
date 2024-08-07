@@ -65,4 +65,8 @@ jobs:
         run: |
           curl -X POST https://notify-api.line.me/api/notify \
           -H 'Authorization: Bearer ${{ secrets.LINE_NOTIFY_TOKEN }}' \
-          -d 'message=🚀 *แอคชั่นเสร็จสมบูรณ์!* 🎉\n\n🔹 *รีโพ:* ${{ env.REPO_NAME }}\n🔹 *ผู้ใช้:* ${{ env.USER_NAME }}\n🔹 *อิมเมจ:* ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\n🔹 *แท็ก:* ${{ steps.meta.outputs.tags }}\n\n👍 *ขอบคุณที่ให้ความสนใจ!*'
+          -d 'message=🚀 *แอคชั่นเสร็จสมบูรณ์!* 🎉
+          🔹 *รีโพ:* ${{ env.REPO_NAME }}
+          🔹 *ผู้ใช้:* ${{ env.USER_NAME }}\n🔹 *อิมเมจ:* ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          🔹 *แท็ก:* ${{ steps.meta.outputs.tags }}
+          👍 *ขอบคุณที่ให้ความสนใจ!*'
