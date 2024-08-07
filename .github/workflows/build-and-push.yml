@@ -7,6 +7,8 @@ on:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  REPO_NAME: ${{ github.repository }}
+  USER_NAME: ${{ github.actor }}
 
 jobs:
   build:
@@ -55,4 +57,4 @@ jobs:
         run: |
           curl -X POST https://notify-api.line.me/api/notify \
           -H 'Authorization: Bearer ${{ secrets.LINE_NOTIFY_TOKEN }}' \
-          -d 'message=Deployment Successful:\nImage: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\nTags: ${{ steps.meta.outputs.tags }}'
+          -d 'message=🚀 *แอคชั่นเสร็จสมบูรณ์!* 🎉\n\n🔹 *รีโพ:* ${{ env.REPO_NAME }}\n🔹 *ผู้ใช้:* ${{ env.USER_NAME }}\n🔹 *อิมเมจ:* ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}\n🔹 *แท็ก:* ${{ steps.meta.outputs.tags }}\n\n👍 *ขอบคุณที่ให้ความสนใจ!*'
